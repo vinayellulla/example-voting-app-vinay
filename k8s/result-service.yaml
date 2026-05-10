@@ -11,5 +11,5 @@ spec:
       app: result
    ports:
     - name: result
-      port: 3000
-      targetPort: 3000
+      port: 80
+      targetPort: 80
