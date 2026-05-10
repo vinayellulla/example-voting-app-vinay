@@ -6,3 +6,13 @@ obj/
 node_modules/
 postgres-secret.yamlinfrastructer/.terraform/
 infrastructer/.terraform.lock.hcl
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+!*.example.tfvars
+
+# Kubernetes secrets
+k8s/postgres-secret.yaml
