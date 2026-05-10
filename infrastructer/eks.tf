@@ -1,7 +1,7 @@
 resource "aws_eks_cluster" "solid_cluster" {
   name     = var.project_name
   role_arn = aws_iam_role.cluster_role.arn
-  version  = "1.29"
+  version  = "1.31"
   vpc_config {
 
     subnet_ids = [
