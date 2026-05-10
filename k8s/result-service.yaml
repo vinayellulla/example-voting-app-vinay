@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+   labels: 
+     app: result
+   name: result
+
+spec: 
+   type: LoadBalancer
+   selector:
+      app: result
+   ports:
+    - name: result
+      port: 3000
+      targetPort: 3000

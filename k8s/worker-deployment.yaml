@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels: 
+    app: worker
+  name: worker 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels: 
+        app: worker
+    spec:
+       containers:
+       - image: dockersamples/examplevotingapp_worker
+         name: worker
+         env:
+         - name: POSTGRES_USER
+           valueFrom:
+             secretKeyRef:
+               name: postgres-secret
+               key: username
+         - name: POSTGRES_PASSWORD
+           valueFrom: 
+             secretKeyRef:
+                name: postgres-secret
+                key: password
+         - name: POSTGRES_DB
+           valueFrom:
+              secretKeyRef:
+                 name: postgres-secret
+                 key: database
+         - name: REDIS_HOST 
+           value: redis
+         - name:  DATABASE_HOST 
+           value: db
+
+
+
+    
